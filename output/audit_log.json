@@ -1,0 +1,138 @@
+[
+  {
+    "timestamp": "2026-09-07T08:35:35.872023Z",
+    "event_id": "EVT-1001",
+    "action": "USER_PROVISIONED",
+    "employee_id": "EMP-8091",
+    "job_title": "Software Engineer",
+    "assigned_entitlements": [
+      "git_write",
+      "jira_user",
+      "aws_dev_read"
+    ],
+    "sod_violations": [],
+    "scim_payload": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "EMP-8091",
+      "userName": "alice.smith@company.com",
+      "name": {
+        "givenName": "Alice",
+        "familyName": "Smith"
+      },
+      "emails": [
+        {
+          "value": "alice.smith@company.com",
+          "primary": true
+        }
+      ],
+      "active": true,
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+        "employeeNumber": "EMP-8091",
+        "department": "Engineering",
+        "title": "Software Engineer"
+      },
+      "entitlements": [
+        "git_write",
+        "jira_user",
+        "aws_dev_read"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-07T08:35:35.872080Z",
+    "event_id": "EVT-1002",
+    "action": "USER_ROLE_TRANSITION",
+    "employee_id": "EMP-8091",
+    "previous_job_title": "Unknown",
+    "new_job_title": "DevOps Engineer",
+    "revoked_entitlements": [
+      "git_write",
+      "aws_dev_read"
+    ],
+    "granted_entitlements": [
+      "k8s_admin",
+      "git_admin",
+      "aws_prod_admin"
+    ],
+    "sod_violations_detected": [
+      {
+        "rule_id": "SOD-002",
+        "rule_name": "Production Code Deployment",
+        "severity": "CRITICAL",
+        "conflict_detected": [
+          "git_write",
+          "aws_prod_admin"
+        ],
+        "description": "User cannot write raw application code AND possess full administrative access to production AWS infrastructure."
+      }
+    ],
+    "scim_payload": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "EMP-8091",
+      "userName": "alice.smith@company.com",
+      "name": {
+        "givenName": "Alice",
+        "familyName": "Smith"
+      },
+      "emails": [
+        {
+          "value": "alice.smith@company.com",
+          "primary": true
+        }
+      ],
+      "active": true,
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+        "employeeNumber": "EMP-8091",
+        "department": "Infrastructure",
+        "title": "DevOps Engineer"
+      },
+      "entitlements": [
+        "git_admin",
+        "jira_user",
+        "aws_prod_admin",
+        "k8s_admin"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-09-07T08:35:35.872119Z",
+    "event_id": "EVT-1003",
+    "action": "USER_DEPROVISIONED",
+    "employee_id": "EMP-8091",
+    "status": "DISABLED",
+    "revoked_entitlements": [
+      "git_admin",
+      "jira_user",
+      "aws_prod_admin",
+      "k8s_admin"
+    ],
+    "scim_payload": {
+      "schemas": [
+        "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "EMP-8091",
+      "userName": "alice.smith@company.com",
+      "name": {
+        "givenName": "Alice",
+        "familyName": "Smith"
+      },
+      "emails": [
+        {
+          "value": "alice.smith@company.com",
+          "primary": true
+        }
+      ],
+      "active": false,
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+        "employeeNumber": "EMP-8091",
+        "department": "Infrastructure",
+        "title": "DevOps Engineer"
+      },
+      "entitlements": []
+    }
+  }
+]
