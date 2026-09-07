@@ -66,7 +66,6 @@ json
 1. Clone the repository:
 
 ```
-bash
 git clone [https://github.com/SamSong538/enterprise-identity-governance.git](https://github.com/SamSong538/enterprise-identity-governance.git)
 cd enterprise-identity-governance
 ```
