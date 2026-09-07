@@ -1,0 +1,14 @@
+{
+  "Software Engineer": {
+    "entitlements": ["git_write", "jira_user", "aws_dev_read"]
+  },
+  "DevOps Engineer": {
+    "entitlements": ["git_admin", "jira_user", "aws_prod_admin", "k8s_admin"]
+  },
+  "Financial Analyst": {
+    "entitlements": ["erp_read", "payroll_view", "accounts_payable_entry"]
+  },
+  "Financial Approver": {
+    "entitlements": ["erp_admin", "payroll_admin", "accounts_payable_approve"]
+  }
+}
