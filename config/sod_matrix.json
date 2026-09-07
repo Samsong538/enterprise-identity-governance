@@ -1,0 +1,18 @@
+{
+  "rules": [
+    {
+      "rule_id": "SOD-001",
+      "name": "Accounts Payable Segregation",
+      "toxic_pair": ["accounts_payable_entry", "accounts_payable_approve"],
+      "severity": "HIGH",
+      "description": "User cannot create AND approve accounts payable transactions."
+    },
+    {
+      "rule_id": "SOD-002",
+      "name": "Production Code Deployment",
+      "toxic_pair": ["git_write", "aws_prod_admin"],
+      "severity": "CRITICAL",
+      "description": "User cannot write raw application code AND possess full administrative access to production AWS infrastructure."
+    }
+  ]
+}
