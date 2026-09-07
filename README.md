@@ -30,6 +30,37 @@ An automated Identity Governance & Administration engine designed to model the e
 | **SOD-001** | Accounts Payable Segregation | `accounts_payable_entry` + `accounts_payable_approve` | HIGH | User cannot create and approve financial payouts. |
 | **SOD-002** | Production Code Deployment | `git_write` + `aws_prod_admin` | CRITICAL | User cannot hold source code write access and full production infrastructure control simultaneously. |
 
+## Sample Audit Log Output (`output/audit_log.json`)
+
+Below is a truncated sample of the automated compliance trail generated during the **Mover** phase, capturing the detected **SOD-002** violation alongside the generated **SCIM 2.0** payload:
+
+```
+json
+{
+  "timestamp": "2026-09-07T08:30:00Z",
+  "event_id": "EVT-1002",
+  "action": "USER_ROLE_TRANSITION",
+  "employee_id": "EMP-8091",
+  "new_job_title": "DevOps Engineer",
+  "sod_violations_detected": [
+    {
+      "rule_id": "SOD-002",
+      "rule_name": "Production Code Deployment",
+      "severity": "CRITICAL",
+      "conflict_detected": ["git_write", "aws_prod_admin"],
+      "description": "User cannot write raw application code AND possess full administrative access to production AWS infrastructure."
+    }
+  ],
+  "scim_payload": {
+    "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User"],
+    "externalId": "EMP-8091",
+    "userName": "alice.smith@company.com",
+    "active": true,
+    "entitlements": ["git_admin", "jira_user", "aws_prod_admin", "k8s_admin"]
+  }
+}
+```
+
 ## How to Run
 
 1. Clone the repository:
@@ -46,3 +77,6 @@ cd enterprise-identity-governance
 python3 iga_engine.py
 ```
 3. Review the generated audit log in output/audit_log.json.
+
+## Audit Log Evidence & Sample Output
+![LogSampleOutput](LogSampleOutput.png)
