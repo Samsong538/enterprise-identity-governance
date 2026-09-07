@@ -1,0 +1,32 @@
+[
+  {
+    "event_id": "EVT-1001",
+    "event_type": "JOINER",
+    "employee_id": "EMP-8091",
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice.smith@company.com",
+    "department": "Engineering",
+    "job_title": "Software Engineer"
+  },
+  {
+    "event_id": "EVT-1002",
+    "event_type": "MOVER",
+    "employee_id": "EMP-8091",
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice.smith@company.com",
+    "department": "Infrastructure",
+    "job_title": "DevOps Engineer"
+  },
+  {
+    "event_id": "EVT-1003",
+    "event_type": "LEAVER",
+    "employee_id": "EMP-8091",
+    "first_name": "Alice",
+    "last_name": "Smith",
+    "email": "alice.smith@company.com",
+    "department": "Infrastructure",
+    "job_title": "DevOps Engineer"
+  }
+]
